@@ -1,5 +1,5 @@
 // TODO hér vantar að sækja viðeigandi föll úr öðrum modules
-import { show } from './lib/ui.js';
+import { show, createButtons } from './lib/ui.js';
 
 /** Hámarks fjöldi best-of leikja, ætti að vera jákvæð heiltala stærri en 0 */
 const MAX_BEST_OF = 10;
@@ -78,7 +78,7 @@ document
   .addEventListener('click', () => show('rounds'));
 
 // Búum til takka
-// createButtons(MAX_BEST_OF, round);
+createButtons(MAX_BEST_OF, round);
 
 // Event listeners fyrir skæri, blað, steinn takka
 // TODO

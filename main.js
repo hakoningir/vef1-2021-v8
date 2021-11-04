@@ -1,8 +1,8 @@
 // TODO hér vantar að sækja viðeigandi föll úr öðrum modules
 import { show, createButtons } from './lib/ui.js';
-
+import { checkGame } from './lib/rock-paper-scissors.js';
 /** Hámarks fjöldi best-of leikja, ætti að vera jákvæð heiltala stærri en 0 */
-const MAX_BEST_OF = 10;
+ export const MAX_BEST_OF = 10;
 
 /** Fjöldi leikja sem á að spila í núverandi umferð */
 let totalRounds;
@@ -46,7 +46,7 @@ const games = [];
 function playRound(player) {
   
   // Komumst að því hvað tölva spilaði og athugum stöðu leiks
-
+  
   // Uppfærum result glugga áður en við sýnum, hér þarf að importa falli
   updateResultScreen({
     player: player.toString(),
@@ -70,46 +70,39 @@ function playRound(player) {
  * @param {Event} e Upplýsingar um atburð
  */
 function round(e) {
-  if (startRound) {
-    totalRounds++;
-  }
-  totalRounds + 1 === currentRound
-  if (computerWins > isValidBestOf /2 ) {
-    totalWins++;
-    finishGame;
-  }
-  if (playerWins > isValidBestOf /2 ) {
-    totalWins++;
-    finishGame;
-  }
+  console.log(totalRounds = e.target.innerHTML)
 }
 
 // Takki sem byrjar leik
 document
   .querySelector('.start button')
-  .addEventListener('click', () => show('rounds'));
+  .addEventListener('click', () => show('rounds'))
+
 document
   .querySelector('.rounds__buttons')
-  .addEventListener('click', () => show('button.scissors'));
+  .addEventListener('click', () => show('buttons'))
 
 // Búum til takka
 createButtons(MAX_BEST_OF, round);
-
+document
+  .querySelector('.play__options')
+  .addEventListener('click', () => show('play'))
 // Event listeners fyrir skæri, blað, steinn takka
 // TODO
-document.querySelector('button.scissor')
-document.querySelector('button.paper')
-document.querySelector('button.rock')
+
+
 /**
  * Uppfærir stöðu yfir alla spilaða leiki þegar leik lýkur.
  * Gerir tilbúið þannig að hægt sé að spila annan leik í framhaldinu.
  */
 function finishGame() {
-  if (finishGame){
-    computerWins&&playerWins===0;
-  }
-  // Bætum við nýjasta leik
+  document
+  .querySelector('.result__buttons')
+  .addEventListener('click', () => show('result'))
+
   
+  // Bætum við nýjasta leik
+
   // Uppfærum stöðu
 
   // Bætum leik við lista af spiluðum leikjum
@@ -118,9 +111,7 @@ function finishGame() {
 
   // Byrjum nýjan leik!
 }
-function nextRound(){
 
-}
 // Næsta umferð og ljúka leik takkar
 document.querySelector('button.finishGame').addEventListener('click', finishGame);
 // TODO takki sem fer með í næstu umferð

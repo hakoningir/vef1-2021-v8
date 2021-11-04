@@ -44,6 +44,7 @@ const games = [];
  * @param {number} player Það sem spilari spilaði
  */
 function playRound(player) {
+  
   // Komumst að því hvað tölva spilaði og athugum stöðu leiks
 
   // Uppfærum result glugga áður en við sýnum, hér þarf að importa falli
@@ -69,13 +70,27 @@ function playRound(player) {
  * @param {Event} e Upplýsingar um atburð
  */
 function round(e) {
-  // TODO útfæra
+  if (startRound) {
+    totalRounds++;
+  }
+  totalRounds + 1 === currentRound
+  if (computerWins > isValidBestOf /2 ) {
+    totalWins++;
+    finishGame;
+  }
+  if (playerWins > isValidBestOf /2 ) {
+    totalWins++;
+    finishGame;
+  }
 }
 
 // Takki sem byrjar leik
 document
   .querySelector('.start button')
   .addEventListener('click', () => show('rounds'));
+document
+  .querySelector('.rounds__buttons')
+  .addEventListener('click', () => show('button.scissors'));
 
 // Búum til takka
 createButtons(MAX_BEST_OF, round);
@@ -83,14 +98,18 @@ createButtons(MAX_BEST_OF, round);
 // Event listeners fyrir skæri, blað, steinn takka
 // TODO
 document.querySelector('button.scissor')
-
+document.querySelector('button.paper')
+document.querySelector('button.rock')
 /**
  * Uppfærir stöðu yfir alla spilaða leiki þegar leik lýkur.
  * Gerir tilbúið þannig að hægt sé að spila annan leik í framhaldinu.
  */
 function finishGame() {
+  if (finishGame){
+    computerWins&&playerWins===0;
+  }
   // Bætum við nýjasta leik
-
+  
   // Uppfærum stöðu
 
   // Bætum leik við lista af spiluðum leikjum
@@ -99,7 +118,10 @@ function finishGame() {
 
   // Byrjum nýjan leik!
 }
+function nextRound(){
 
+}
 // Næsta umferð og ljúka leik takkar
 document.querySelector('button.finishGame').addEventListener('click', finishGame);
 // TODO takki sem fer með í næstu umferð
+document.querySelector('button.nextRound').addEventListener('click', nextRound);
